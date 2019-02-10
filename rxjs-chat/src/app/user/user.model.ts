@@ -1,3 +1,9 @@
+import { uuid } from '../util/uuid';
+
 export class User {
-  constructor(public readonly id: string) {}
+  id: string;
+
+  constructor(public name: string, public avatarSrc: string) {
+    this.id = uuid();
+  }
 }

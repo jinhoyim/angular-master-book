@@ -5,7 +5,7 @@ import { MessagesService } from './messages.service';
 
 describe('MessagesService', () => {
   it('should test', () => {
-    const user: User = new User('Nate');
+    const user: User = new User('Nate', '');
     const thread: Thread = new Thread('t1', 'Nate');
     const m1: Message = new Message({
       author: user,

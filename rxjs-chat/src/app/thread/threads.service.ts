@@ -46,9 +46,10 @@ export class ThreadsService {
       })
     );
 
-    // this.currentThreadMessages =
-    combineLatest(this.currentThread, this.messagesService.messages).pipe(
-      map(([currentThread, messages]) => {
+    combineLatest(
+      this.currentThread,
+      this.messagesService.messages,
+      (currentThread, messages) => {
         if (currentThread && messages.length > 0) {
           return _.chain(messages)
             .filter(
@@ -62,7 +63,7 @@ export class ThreadsService {
         } else {
           return [] as Message[];
         }
-      })
+      }
     );
     this.currentThread.subscribe(this.messagesService.markThreadAsRead);
   }
